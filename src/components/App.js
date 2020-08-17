@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SearchBar from './SearchBar'
 import VideoList from './VideoList'
 import VideoDetail from './VideoDetail'
+import VideoItem from './VideoItem'
 import youtube from '../apis/youtube'
 
 export default () => {
@@ -35,7 +36,13 @@ export default () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+            <VideoList>
+              {
+                videos.map((video => (
+                  <VideoItem key={video.id.videoId} onVideoSelect={onVideoSelect} video={video} />
+                )))
+              }
+            </VideoList>
           </div>
         </div>
       </div>
