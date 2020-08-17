@@ -1,20 +1,23 @@
 import React from 'react'
+import ReactPlayer from 'react-player'
 
 const VideoDetail = ({ video }) => {
   if (!video) {
-    return <div>Loading...</div>
+    return <div></div>
   }
-
-  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
+  const videoId = video?.id.videoId;
+  const title = video?.snippet.title;
+  const description = video?.snippet.description;
+  const videoSrc = `https://www.youtube.com/embed/${videoId}`
 
   return (
     <div>
       <div className="ui embed">
-        <iframe title="video player" src={videoSrc}/>
+        <ReactPlayer url={videoSrc} />
       </div>
       <div className="ui segment">
-        <h4 className="ui header">{video.snippet.title}</h4>
-        <p>{video.snippet.description}</p>
+        <h4 className="ui header">{title}</h4>
+        <p>{description}</p>
       </div>
     </div>
   )
