@@ -23,7 +23,6 @@ module.exports = {
     plugins: [
         new ModuleFederationPlugin({
             name: "videos_remote",
-            library: { type: "var", name: "videos_remote" },
             filename: "remoteEntry.js",
             exposes: {
                 './App': "./src/components/App"
