@@ -4,9 +4,8 @@
   "description": "\"Remote microfrontend for fetching videos\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
